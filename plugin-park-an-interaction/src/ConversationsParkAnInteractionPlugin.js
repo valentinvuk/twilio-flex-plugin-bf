@@ -2,9 +2,9 @@ import React from 'react'
 import { FlexPlugin } from '@twilio/flex-plugin'
 import { CustomizationProvider } from '@twilio-paste/core/customization'
 
-import { ParkButton } from './components'
 import './notifications'
 import './actions'
+import {Header} from "./components/Header/Header";
 
 const PLUGIN_NAME = 'ConversationsParkAnInteractionPlugin'
 
@@ -25,10 +25,9 @@ export default class ConversationsParkAnInteractionPlugin extends FlexPlugin {
       PasteThemeProvider: CustomizationProvider
     })
 
-    flex.TaskCanvasHeader.Content.add(
-      <ParkButton key='conversation-park-button' />,
+    flex.TaskCanvasHeader.Content.replace(
+        <Header key='conversation-park-button' />,
       {
-        sortOrder: 1,
         if: props =>
           props.channelDefinition.capabilities.has('Chat') &&
           props.task.taskStatus === 'assigned'

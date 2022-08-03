@@ -33,7 +33,7 @@ cd serverless-park-an-interaction
 ```
 
 ```bash
-cp .env.example .env
+cp .env .env
 ```
 
 - Fill the `.env` file accordingly:
@@ -66,7 +66,7 @@ cd plugin-park-an-interaction
 npm install
 
 # Create the .env according to the example
-cp .env.example .env
+cp .env .env
 ```
 
 - Fill the `.env` file with the URL of your Twilio function created earlier `/park-an-interaction`.

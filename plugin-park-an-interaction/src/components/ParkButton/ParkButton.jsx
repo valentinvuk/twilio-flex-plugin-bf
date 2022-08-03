@@ -29,7 +29,7 @@ export const ParkButton = props => {
           <PauseIcon
             decorative={false}
             title='Pause Interaction'
-            size='sizeIcon40'
+            size='sizeIcon50'
           />
         </IconWrapper>
       )}
