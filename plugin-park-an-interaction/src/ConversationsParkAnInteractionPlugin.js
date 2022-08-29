@@ -40,5 +40,19 @@ export default class ConversationsParkAnInteractionPlugin extends FlexPlugin {
             return true;
         }}];
 
+        let alertSound = new Audio("https://bisque-armadillo-2813.twil.io/assets/iphoneRing.mp3");
+        alertSound.loop = true;
+        const resStatus = ["accepted","canceled","rejected","rescinded","timeout"];
+
+        manager.workerClient.on("reservationCreated", (reservation) => {
+            if(reservation.task.taskChannelUniqueName === "voice") {
+                alertSound.play()
+            }
+            resStatus.forEach((e) => {
+                reservation.on(e, () => {
+                    alertSound.pause()
+                });
+            });
+        })
     }
 }
